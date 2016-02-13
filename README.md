@@ -28,4 +28,4 @@ npm run build
 * Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
 * Hot Module Replacement
 
-When you run `npm run build` we use the [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) to move the css to a separate file. This file then gets automatically included in your index.html.  
+When you run `npm run build` we use the [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) to move the css to a separate file, so that the styles are applied before any javascript gets loaded. This file then gets automatically included in the head of your `index.html` file. We disabled this function for the dev version, because the loader doesn't support hot module replacement.

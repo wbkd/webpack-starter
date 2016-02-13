@@ -6,9 +6,5 @@ if (module.hot) {
 
 require('../styles/index.scss');
 
-const lol = ()=>{
-var a = 'this is a testttt';
-console.log(a);
-};
-
-lol();
+const number = 123;
+const output = `A number: ${number}`;

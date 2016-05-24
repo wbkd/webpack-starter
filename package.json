@@ -38,21 +38,21 @@
   },
   "homepage": "https://github.com/wbkd/yet-another-webpack-es6-starterkit#readme",
   "devDependencies": {
-    "babel-core": "^6.5.2",
-    "babel-loader": "^6.2.2",
-    "babel-preset-es2015": "^6.5.0",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "css-loader": "^0.23.1",
-    "eslint": "^2.0.0",
-    "eslint-loader": "^1.2.1",
+    "eslint": "^2.10.2",
+    "eslint-loader": "^1.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.8.1",
-    "node-sass": "^3.4.2",
-    "sass-loader": "^3.1.2",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.13",
+    "html-webpack-plugin": "^2.17.0",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "babel-polyfill": "^6.5.0"
+    "babel-polyfill": "^6.9.0"
   }
 }

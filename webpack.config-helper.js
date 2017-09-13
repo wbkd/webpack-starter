@@ -47,7 +47,6 @@ module.exports = (options) => {
     webpackConfig.entry = ['./src/scripts/index'];
 
     webpackConfig.plugins.push(
-      new Webpack.optimize.OccurenceOrderPlugin(),
       new Webpack.optimize.UglifyJsPlugin({
         compressor: {
           warnings: false

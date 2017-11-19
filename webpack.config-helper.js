@@ -5,7 +5,6 @@ const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
-const webpack = require('webpack');
 
 module.exports = (options) => {
   const dest = Path.join(__dirname, 'dist');
@@ -56,7 +55,7 @@ module.exports = (options) => {
     );
 
     webpackConfig.module.rules.push({
-      test: /\.scss$/i,
+      test: /\.s?css/i,
       use: ExtractSASS.extract(['css-loader?minimize=true', 'sass-loader'])
     });
 
@@ -66,7 +65,7 @@ module.exports = (options) => {
     );
 
     webpackConfig.module.rules.push({
-      test: /\.scss$/i,
+      test: /\.s?css$/i,
       use: ['style-loader', 'css-loader', 'sass-loader']
     }, {
       test: /\.js$/,

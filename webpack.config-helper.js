@@ -56,7 +56,7 @@ module.exports = (options) => {
 
     webpackConfig.module.rules.push({
       test: /\.s?css/i,
-      use: ExtractSASS.extract(['css-loader?minimize=true', 'sass-loader'])
+      use: ExtractSASS.extract(['css-loader?sourceMap=true&minimize=true', 'sass-loader'])
     });
 
   } else {
@@ -66,7 +66,7 @@ module.exports = (options) => {
 
     webpackConfig.module.rules.push({
       test: /\.s?css$/i,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
     }, {
       test: /\.js$/,
       use: 'eslint-loader',

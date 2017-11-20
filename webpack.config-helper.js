@@ -25,7 +25,15 @@ module.exports = (options) => {
         }
       }),
       new HtmlWebpackPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
+        minify: options.isProduction && {
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          decodeEntities: true,
+          minifyCSS: true,
+          minifyJS: true,
+          removeComments: true
+        }
       })
     ],
     module: {

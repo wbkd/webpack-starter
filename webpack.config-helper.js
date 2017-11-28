@@ -4,7 +4,7 @@ const Path = require('path');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
+const ExtractSASS = new ExtractTextPlugin('styles/bundle.[hash].css');
 
 module.exports = (options) => {
   const dest = Path.join(__dirname, 'dist');
@@ -16,7 +16,7 @@ module.exports = (options) => {
     ],
     output: {
       path: dest,
-      filename: 'bundle.js'
+      filename: 'bundle.[hash].js'
     },
     plugins: [
       new Webpack.DefinePlugin({

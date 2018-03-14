@@ -6,11 +6,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (options) => {
   const dest = Path.join(__dirname, 'dist');
 
   let webpackConfig = {
+    mode: options.mode,
     devtool: options.devtool,
     entry: [
       './src/scripts/index'
@@ -27,7 +30,8 @@ module.exports = (options) => {
       }),
       new HtmlWebpackPlugin({
         template: './src/index.html'
-      })
+      }),
+      new CleanWebpackPlugin([dest])
     ],
     module: {
       rules: [{
@@ -47,10 +51,8 @@ module.exports = (options) => {
     webpackConfig.entry = ['./src/scripts/index'];
 
     webpackConfig.plugins.push(
-      new Webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          warnings: false
-        }
+      new UglifyJSPlugin({
+        sourceMap: true,
       }),
       ExtractSASS
     );

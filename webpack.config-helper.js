@@ -20,7 +20,7 @@ module.exports = (options) => {
     ],
     output: {
       path: dest,
-      filename: 'bundle.js'
+      filename: 'bundle.[hash].js'
     },
     plugins: [
       new Webpack.DefinePlugin({
@@ -58,8 +58,8 @@ module.exports = (options) => {
     );
 
     webpackConfig.module.rules.push({
-      test: /\.scss$/i,
-      use: ExtractSASS.extract(['css-loader', 'sass-loader'])
+      test: /\.s?css/i,
+      use: ExtractSASS.extract(['css-loader?sourceMap=true&minimize=true', 'sass-loader'])
     });
 
   } else {
@@ -68,8 +68,8 @@ module.exports = (options) => {
     );
 
     webpackConfig.module.rules.push({
-      test: /\.scss$/i,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      test: /\.s?css$/i,
+      use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
     }, {
       test: /\.js$/,
       use: 'eslint-loader',

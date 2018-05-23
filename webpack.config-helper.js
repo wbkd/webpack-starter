@@ -78,6 +78,7 @@ module.exports = (options) => {
 
     webpackConfig.devServer = {
       contentBase: dest,
+      watchContentBase: true,
       hot: true,
       port: options.port,
       inline: true

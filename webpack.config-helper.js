@@ -16,6 +16,7 @@ module.exports = (options) => {
     mode: options.mode,
     devtool: options.devtool,
     entry: [
+      'babel-polyfill',
       './src/scripts/index'
     ],
     output: {

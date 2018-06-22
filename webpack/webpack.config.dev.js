@@ -12,8 +12,7 @@ module.exports = merge(common, {
   devtool: 'cheap-eval-source-map',
   devServer: {
     contentBase: dest,
-    port: 1337,
-    inline: true,
+    inline: true
   },
   plugins: [
     new Webpack.DefinePlugin({

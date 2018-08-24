@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wbkd/yet-another-webpack-es6-starterkit.git"
+    "url": "git+https://github.com/wbkd/webpack-starter.git"
   },
   "keywords": [
     "webpack",
@@ -21,7 +21,7 @@
   "author": "webkid.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wbkd/yet-another-webpack-es6-starterkit/issues"
+    "url": "https://github.com/wbkd/webpack-starter/issues"
   },
   "eslintConfig": {
     "env": {
@@ -41,7 +41,7 @@
       "es2015"
     ]
   },
-  "homepage": "https://github.com/wbkd/yet-another-webpack-es6-starterkit#readme",
+  "homepage": "https://github.com/wbkd/webpack-starter#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

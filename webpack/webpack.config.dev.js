@@ -1,9 +1,9 @@
 'use strict';
 
+const Path = require('path');
+const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const Webpack = require('webpack');
-const Path = require('path');
 
 const dest = Path.join(__dirname, '../dist');
 
@@ -24,7 +24,7 @@ module.exports = merge(common, {
       {
         test: /\.(js)$/,
         include: Path.resolve(__dirname, '../src'),
-        enforce: "pre",
+        enforce: 'pre',
         loader: 'eslint-loader',
         options: {
           emitWarning: true,

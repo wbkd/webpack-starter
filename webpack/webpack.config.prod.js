@@ -1,11 +1,10 @@
 'use strict';
 
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const Webpack = require('webpack');
 const Path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ExtractSASS = new ExtractTextPlugin('styles/bundle.css');
+const Webpack = require('webpack');
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -18,10 +17,11 @@ module.exports = merge(common, {
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new ExtractTextPlugin({ filename: 'bundle.css' }),
     // compiling mode “scope hoisting”
     new Webpack.optimize.ModuleConcatenationPlugin(),
-    ExtractSASS
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css'
+    })
   ],
   resolve: {
     alias: {
@@ -37,7 +37,11 @@ module.exports = merge(common, {
       },
       {
         test: /\.s?css/i,
-        use: ExtractSASS.extract(['css-loader?sourceMap=true&minimize=true', 'sass-loader'])
+        use : [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   }

@@ -1,5 +1,3 @@
-'use strict';
-
 const Path = require('path');
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
@@ -17,17 +15,11 @@ module.exports = merge(common, {
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    // compiling mode “scope hoisting”
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       filename: 'bundle.css'
     })
   ],
-  resolve: {
-    alias: {
-      '~': Path.resolve(__dirname, '../src')
-    }
-  },
   module: {
     rules: [
       {

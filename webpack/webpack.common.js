@@ -3,19 +3,22 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const dest = Path.join(__dirname, '../dist');
-
 module.exports = {
-  entry: [
-    Path.resolve(__dirname, './polyfills'),
-    Path.resolve(__dirname, '../src/scripts/index')
-  ],
+  entry: {
+    app: Path.resolve(__dirname, '../src/scripts/index.js')
+  },
   output: {
-    path: dest,
-    filename: 'bundle.[hash].js'
+    path: Path.join(__dirname, '../build'),
+    filename: 'js/[name].js'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: false
+    }
   },
   plugins: [
-    new CleanWebpackPlugin([dest], { root: Path.resolve(__dirname, '..') }),
+    new CleanWebpackPlugin(['build'], { root: Path.resolve(__dirname, '..') }),
     new CopyWebpackPlugin([
       { from: Path.resolve(__dirname, '../public'), to: 'public' }
     ]),
@@ -43,7 +46,7 @@ module.exports = {
             name: '[path][name].[ext]'
           }
         }
-      }
+      },
     ]
   }
 };

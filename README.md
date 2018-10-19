@@ -12,7 +12,7 @@ npm install
 ### Start Dev Server
 
 ```
-npm run dev
+npm start
 ```
 
 ### Build Prod Version

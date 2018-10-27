@@ -2,8 +2,7 @@
 node_modules
 
 # production
-build
-bundle.zip
+dist
 
 # misc
 .DS_Store

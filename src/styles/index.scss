@@ -1,5 +1,9 @@
-$body-color: blue;
-
 body {
-  color: $body-color;
+  margin: 1em 2em;
+}
+label {
+  display: block;
+}
+.gallow {
+  display: none;
 }

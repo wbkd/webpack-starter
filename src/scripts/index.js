@@ -12,7 +12,7 @@ const placeholder = '_';
 const guesses = {};
 const chances = 6;
 
-var doThings = function(lol, lol2) {
+var doThings = function(lol) {
     if (lol === "setFocus") {
         document.getElementById('guess').focus();
     }
@@ -20,21 +20,30 @@ var doThings = function(lol, lol2) {
         document.getElementById('hangman').addEventListener('submit', function(e) {
             e.preventDefault();
             const guess = document.getElementById('guess');
-            doThings("tryGuess", guess.value);
+            if (guess.value === undefined || guess.value.length !== 1) {
+                return;
+            }
+            guesses[guess.value] = true;
+            doThings("repaint");
             guess.value = '';
         }, false);
     }
-    if (lol === "tryGuess") {
-        if (lol2 === undefined || lol2.length !== 1) {
-            return;
-        }
-        guesses[lol2] = true;
-        doThings("repaint");
-    }
     if (lol === "repaint") {
         const progress_ele = document.getElementById('progress');
-        const progress = getProgress();
-        const misses = getMisses();
+        const progress = [];
+
+        for (let i = 0; i < secret.length; i++) {
+            const char = secret.charAt(i);
+            progress.push(char in guesses ? char : placeholder);
+        }
+
+        const misses = [];
+        for (const guess in guesses) {
+          if (guesses.hasOwnProperty(guess) && secret.indexOf(guess) === -1) {
+            misses.push(guess);
+          }
+        }
+
         const chances_left = (chances - misses.length);
         const gallow_ascii = document.getElementById('gallow-' + chances_left).innerHTML;
 
@@ -52,30 +61,3 @@ var doThings = function(lol, lol2) {
 } 
 
 document.__proto__._ = doThings;
-
-
-function getProgress() {
-    const result = [];
-
-    for (let i = 0; i < secret.length; i++) {
-    const char = secret.charAt(i);
-        result.push(char in guesses ? char : placeholder);
-    }
-
-    return result;
-};
-
-function getMisses() {
-    const result = [];
-
-    for (const guess in guesses) {
-      if (guesses.hasOwnProperty(guess) && secret.indexOf(guess) === -1) {
-        result.push(guess);
-      }
-    }
-    return result;
-};
-
-function finish(msg) {
-    document.getElementById('hangman').innerHTML = msg;
-}

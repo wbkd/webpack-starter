@@ -10,12 +10,14 @@ module.exports = merge(common, {
     chunkFilename: 'js/[name].chunk.js'
   },
   devServer: {
-    inline: true
+    inline: true,
+    hot: true
   },
   plugins: [
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
-    })
+    }),
+    new Webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [

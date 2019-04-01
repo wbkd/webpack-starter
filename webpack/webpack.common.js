@@ -18,7 +18,7 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(['build'], { root: Path.resolve(__dirname, '..') }),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: Path.resolve(__dirname, '../public'), to: 'public' }
     ]),

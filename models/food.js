@@ -10,7 +10,7 @@ class Food extends Model {
   static get tableName () {
     return 'foods'
   }
-  static get relationMAppings () {
+  static get relationMappings () {
     return {
       meals: {
         relation: Model.ManyToManyRelation,

@@ -6,7 +6,7 @@ module.exports = {
     client: 'pg',
     connection: {
       host : '127.0.0.1',
-      user : 'walsh',
+      user : 'ethangrab',
       password : null,
       database : 'quant_self',
       charset: 'utf8'
@@ -24,7 +24,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'quant_self_staging',
-      user:     'walsh',
+      user:     'ethangrab',
       password: null
     },
     migrations: {
@@ -39,7 +39,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'quant_self_production',
-      user:     'walsh',
+      user:     'ethangrab',
       password: null
     },
     migrations: {

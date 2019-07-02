@@ -22,10 +22,12 @@ router.get('/:id', async (req,res) => {
   res.send(food)
 })
 
-router.post('/', (req,res) => {
-  database('foods').insert({name: req.query.name, calories: req.query.calories})
-    .then()
+router.post('/', async (req,res) => {
+  const newFood = await Food.query()
+    .insert({name: req.query.name, calories: req.query.calories})
+  res.send(newFood)
 })
+
 
 
 

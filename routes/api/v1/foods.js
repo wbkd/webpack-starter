@@ -34,6 +34,13 @@ router.patch('/:id', async (req,res) => {
   res.send(editedFood)
 })
 
+router.delete('/:id', async (req,res) => {
+  const deletedFood = await Food.query()
+    .findById(req.params.id)
+  await Food.query().findById(req.params.id).delete()
+  res.send(`${deletedFood.name} has been deleted.`)
+})
+
 
 
 

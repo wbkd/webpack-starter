@@ -28,6 +28,11 @@ router.post('/', async (req,res) => {
   res.send(newFood)
 })
 
+router.patch('/:id', async (req,res) => {
+  const editedFood = await Food.query()
+    .patchAndFetchById(req.params.id, req.query)
+  res.send(editedFood)
+})
 
 
 

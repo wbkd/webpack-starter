@@ -28,4 +28,4 @@ class Meal extends Model {
   }
 }
 
-module.exports = Food
+module.exports = Meal

@@ -1,32 +1,31 @@
 const knex = require('knex')({client: 'pg'})
 const connection = require('../knexfile')
 const { Model } = require('objection')
-var Meal = require('./meal')
 
 const knexConnection = knex(connection)
 
 Model.knex(knexConnection)
 
-class Food extends Model {
+class Meal extends Model {
   static get tableName () {
-    return 'foods'
+    return 'meals'
   }
   static get relationMappings () {
     return {
-      meals: {
+      foods: {
         relation: Model.ManyToManyRelation,
-        modelClass: Meal,
+        modelClass: Food,
         join: {
-          from: 'foods.id',
+          from: 'meals.id',
           through: {
-            from: 'food_meals.food_id',
-            to: 'food_meals.meal_id'
+            from: 'food_meals.meal_id',
+            to: 'food_meals.food_id'
           },
-          to: 'meals.id'
+          to: 'food.id'
         }
       }
     }
   }
 }
 
-module.exports = Food
+module.exports = Meal

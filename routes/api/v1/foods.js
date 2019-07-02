@@ -17,6 +17,12 @@ router.get('/', async (req,res) => {
 })
 
 
+router.post('/', (req,res) => {
+  eval(pry.it)
+  database('foods').insert({name: req.query.name, calories: req.query.calories})
+    .then()
+})
+
 
 
 

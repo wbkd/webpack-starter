@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Food = require('../../../models/food')
-// var Meal = require('../../../models/meal')
+var Meal = require('../../../models/meal')
 var foodsController = require('../../../controllers/api/v1/foods_controller.js');
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../../../knexfile')[environment];
@@ -17,7 +17,7 @@ router.get('/', async (req,res) => {
 })
 
 router.get('/:id', async (req,res) => {
-  // const food = await Food.query().findById(req.params.id).joinRelation('meals')
+  // const food = await Food.query().findById(req.params.id).joinRelation(Meal)
   const food = await Food.query().findById(req.params.id)
   res.send(food)
 })

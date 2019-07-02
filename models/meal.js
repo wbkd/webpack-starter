@@ -18,8 +18,8 @@ class Meal extends Model {
         join: {
           from: 'meals.id',
           through: {
-            from: 'food_meals.food_id',
-            to: 'food_meals.meal_id'
+            from: 'food_meals.meal_id',
+            to: 'food_meals.food_id'
           },
           to: 'food.id'
         }

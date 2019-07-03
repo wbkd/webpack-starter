@@ -12,84 +12,23 @@ const { Model } = require('objection');
 Model.knex(database)
 
 router.get('/', async (req,res) => {
-  try {
-    const foods = await Food.query()
-    if (foods) {
-      res.send(foods)
-    }
-    else {
-      res.status(404).json({
-        error: "No foods here yet!"
-      })
-    }
-  } catch (error) {
-      res.status(404).json({ error });
-    };
+  foodsController.index(req,res)
 })
 
 router.get('/:id', async (req,res) => {
-  // const food = await Food.query().findById(req.params.id).joinRelation(Meal)
-  try {
-    const food = await Food.query().findById(req.params.id)
-    if (food) {
-      res.send(food)
-    }
-    else {
-      res.status(404).json({
-        error: "No food exists with that ID"
-      })
-    }
-  } catch (error) {
-      res.status(404).json({ error });
-    };
+  foodsController.show(req,res)
 })
 
 router.post('/', async (req,res) => {
-  try {
-    const newFood = await Food.query()
-    .insert({name: req.query.name, calories: req.query.calories})
-    res.send(newFood)
-  } catch (error) {
-      res.status(404).json({ error });
-    };
+  foodsController.create(req,res)
 })
 
 router.patch('/:id', async (req,res) => {
-  try {
-    const editedFood = await Food.query()
-    .patchAndFetchById(req.params.id, req.query)
-    if (editedFood) {
-      res.send(editedFood)
-    }
-    else {
-      res.status(404).json({
-        error: "No food exists with that ID"
-      })
-    }
-  } catch (error) {
-      res.status(404).json({ error });
-    };
+  foodsController.update(req,res)
 })
 
 router.delete('/:id', async (req,res) => {
-  try {
-    const deletedFood = await Food.query()
-    .findById(req.params.id)
-    if (deletedFood) {
-      await Food.query().findById(req.params.id).delete()
-      res.send(`${deletedFood.name} has been deleted.`)
-    }
-    else {
-      res.status(404).json({
-        error: "No food exists with that ID"
-      })
-    }
-  } catch (error) {
-      res.status(404).json({ error });
-    };
+  foodsController.destroy(req,res)
 })
-
-
-
 
 module.exports = router;

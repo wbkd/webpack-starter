@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
-    "build": "webpack --config webpack/webpack.config.prod.js  --colors",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
   },
   "repository": {
@@ -33,13 +33,13 @@
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^3.0.0",
     "eslint": "^6.0.0",
-    "eslint-loader": "^2.1.2",
+    "eslint-loader": "^3.0.0",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
-    "mini-css-extract-plugin": "^0.7.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
+    "style-loader": "^1.0.0",
+    "sass-loader": "^8.0.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",

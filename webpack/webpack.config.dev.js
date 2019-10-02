@@ -20,7 +20,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),
         enforce: 'pre',
         loader: 'eslint-loader',
@@ -29,7 +29,7 @@ module.exports = merge(common, {
         }
       },
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),
         loader: 'babel-loader'
       },

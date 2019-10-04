@@ -1,6 +1,6 @@
 # Webpack Frontend Starterkit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/wbkd/webpack-starter.svg)](https://greenkeeper.io/)
+[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
 
 A lightweight foundation for your next webpack based frontend project.
 

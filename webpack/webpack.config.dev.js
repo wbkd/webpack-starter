@@ -25,9 +25,10 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        enforce: 'pre',
         test: /\.(js)$/,
         include: Path.resolve(__dirname, '../src'),
-        enforce: 'pre',
+        exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
           emitWarning: true,
@@ -36,6 +37,7 @@ module.exports = merge(common, {
       {
         test: /\.(js)$/,
         include: Path.resolve(__dirname, '../src'),
+        exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {

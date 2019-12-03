@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wbkd/webpack-starter.git"
+    "url": "git+https://github.com/Sarvarkhuja/webpack-starter"
   },
   "keywords": [
     "webpack",
@@ -22,7 +22,7 @@
   "author": "webkid.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wbkd/webpack-starter/issues"
+    "url": "https://github.com/Sarvarkhuja/webpack-starter/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const Path = require('path');
 const Webpack = require('webpack');
 const merge = require('webpack-merge');

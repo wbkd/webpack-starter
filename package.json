@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "A light foundation for your next frontend project based on webpack.",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors", 
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "purge":"purgecss --css build/styles.css --content build/index.html src/**/*.js --out build/"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "html-webpack-plugin": "^4.0.0-beta.5",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "purgecss": "^1.4.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.29.6",
@@ -47,6 +49,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
-    "core-js": "^3.2.1"
+    "core-js": "^3.2.1",
+    "fsevents": "^2.1.2",
+    "purgecss-whitelister": "^2.4.0"
   }
 }

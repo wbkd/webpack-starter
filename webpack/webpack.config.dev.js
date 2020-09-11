@@ -1,6 +1,8 @@
 const Path = require('path');
 const Webpack = require('webpack');
-const { merge } = require('webpack-merge');
+const { merge } = require('webpack-merge');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -16,6 +18,9 @@ module.exports = merge(common, {
   plugins: [
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new StylelintPlugin({
+      files: Path.join('src', '**/*.s?(a|c)ss')
     })
   ],
   module: {
@@ -40,7 +45,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.s?css$/i,
-        use: ['style-loader', 'css-loader?sourceMap=true', 'sass-loader']
+        use: ['style-loader', 'css-loader?sourceMap=true', 'postcss-loader', 'sass-loader']
       }
     ]
   }

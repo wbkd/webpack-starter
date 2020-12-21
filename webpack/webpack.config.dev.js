@@ -6,6 +6,7 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  target: 'web',
   mode: 'development',
   devtool: 'eval-cheap-source-map',
   output: {

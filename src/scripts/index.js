@@ -37,16 +37,15 @@ function getAllquestions() {
 }
 
 function getQuestionHtml(question) {
-  debugger
-  return `<div class="qustion__container">
-    <div class="question__title">${question.question}</div>     
+    return `<div class="qustion__container">
+    <div class="question__title">${question.category}</div>     
   </div>`;
 }
 
 const app = document.querySelector('.app');
 
 function render() {
-  app.innerHTML = getQuestionHtml(questions[0]);
+  app.innerHTML = getQuestionHtml(questions[1]);
 }
 
 render();

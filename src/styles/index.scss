@@ -5,7 +5,13 @@ body {
   font-family: sans-serif;
 }
 
-.qustion__title {
+.question__container {
+  width: 800px;
+  height: 200px;
+  background-color: blue;
+}
+
+.question__title {
   width: 600px;
   height: 200px;
   background-color: red;

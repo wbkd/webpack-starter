@@ -5,14 +5,13 @@ body {
   font-family: sans-serif;
 }
 
-.question__container {
+.questions {
   width: 800px;
-  height: 200px;
-  background-color: blue;
+  border: 1px solid black;
 }
 
 .question__title {
-  width: 600px;
-  height: 200px;
-  background-color: red;
+  min-width: 100px;
+  min-height: 100px;
+  background-color: rgba(70, 173, 39, 0.274);
 }

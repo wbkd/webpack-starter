@@ -6,6 +6,7 @@ build
 
 # misc
 .DS_Store
+Thumbs.db
 
 npm-debug.log
 yarn-error.log
@@ -13,3 +14,4 @@ yarn-error.log
 .vscode
 .idea
 .husky
+.eslintcache

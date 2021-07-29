@@ -22,8 +22,8 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js",
     "lint": "yarn lint:styles && yarn lint:scripts",
-    "lint:scripts": "eslint --cache --fix",
-    "lint:styles": "stylelint --fix",
+    "lint:scripts": "eslint src/ --cache --fix",
+    "lint:styles": "stylelint src/ --fix",
     "prepare": "husky install",
     "start": "webpack serve --config webpack/webpack.config.dev.js",
     "sort": "sort-package-json",

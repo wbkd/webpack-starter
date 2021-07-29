@@ -2,6 +2,23 @@
   "name": "webpack-starter",
   "version": "1.0.0",
   "description": "A light foundation for your next frontend project based on webpack.",
+  "keywords": [
+    "webpack",
+    "startkit",
+    "frontend",
+    "es6",
+    "javascript",
+    "webdev"
+  ],
+  "bugs": {
+    "url": "https://github.com/wbkd/webpack-starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbkd/webpack-starter.git"
+  },
+  "license": "MIT",
+  "author": "webkid.io",
   "scripts": {
     "lint": "npm run lint:styles; npm run lint:scripts",
     "lint:styles": "stylelint src",
@@ -11,22 +28,11 @@
     "update": "ncu -u",
     "sort": "sort-package-json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wbkd/webpack-starter.git"
-  },
-  "keywords": [
-    "webpack",
-    "startkit",
-    "frontend",
-    "es6",
-    "javascript",
-    "webdev"
-  ],
-  "author": "webkid.io",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wbkd/webpack-starter/issues"
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "core-js": "^3.8.1",
+    "postcss": "^8.3.6",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -58,11 +64,5 @@
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.4.0"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "core-js": "^3.8.1",
-    "postcss": "^8.3.6",
-    "uuid": "^8.3.2"
   }
 }

@@ -57,6 +57,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "core-js": "^3.8.1"
+    "core-js": "^3.8.1",
+    "postcss": "^8.3.6",
+    "uuid": "^8.3.2"
   }
 }

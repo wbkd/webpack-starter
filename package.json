@@ -20,7 +20,7 @@
   "license": "MIT",
   "author": "webkid.io",
   "scripts": {
-    "lint": "npm run lint:styles; npm run lint:scripts",
+    "lint": "yarn lint:styles && yarn lint:scripts",
     "lint:styles": "stylelint src",
     "lint:scripts": "eslint src",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js",

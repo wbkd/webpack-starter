@@ -57,6 +57,6 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "core-js": "^3.8.1"
+    "core-js": "^3.16.1"
   }
 }

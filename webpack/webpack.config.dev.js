@@ -14,7 +14,9 @@ module.exports = merge(common, {
     chunkFilename: 'js/[name].chunk.js',
   },
   devServer: {
-    inline: true,
+    client: {
+      logging: 'error',
+    },
     hot: true,
   },
   plugins: [
@@ -29,16 +31,9 @@ module.exports = merge(common, {
     new StylelintPlugin({
       files: Path.join('src', '**/*.s?(a|c)ss'),
     }),
-    new ESLintPlugin({
-      emitWarning: true,
-    }),
   ],
   module: {
     rules: [
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
-      },
       {
         test: /\.js$/,
         include: Path.resolve(__dirname, '../src'),

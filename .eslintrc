@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": [
     "eslint:recommended"
   ],
@@ -8,8 +8,9 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "requireConfigFile": false
   },
   "rules": {
     "semi": 2

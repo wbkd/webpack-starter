@@ -19,7 +19,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({ patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }] }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }],
+    }),
     new HtmlWebpackPlugin({
       template: Path.resolve(__dirname, '../src/index.html'),
     }),
@@ -37,13 +39,12 @@ module.exports = {
         type: 'javascript/auto',
       },
       {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[path][name].[ext]',
-          },
-        },
+        type: 'asset'
       },
     ],
   },

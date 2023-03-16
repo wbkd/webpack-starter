@@ -1,15 +1,13 @@
 const Path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
+
+const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js'),
-  },
   output: {
     path: Path.join(__dirname, '../build'),
-    filename: 'js/[name].js',
   },
   optimization: {
     splitChunks: {
@@ -22,8 +20,18 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [{ from: Path.resolve(__dirname, '../public'), to: 'public' }],
     }),
-    new HtmlWebpackPlugin({
-      template: Path.resolve(__dirname, '../src/index.html'),
+    new HtmlBundlerPlugin({
+      entry: {
+        // define templates here, the syntax is the same as Webpack entry
+        index: 'src/index.html',
+      },
+      js: {
+        filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash:8].js', // output filename of extracted JS
+      },
+      css: {
+        inline: 'auto', // in dev mode inline CSS in HTML, in prod mode extract into a CSS file
+        filename: 'css/[name].[contenthash:8].css', // output filename of extracted CSS
+      },
     }),
   ],
   resolve: {
@@ -37,10 +45,6 @@ module.exports = {
         test: /\.mjs$/,
         include: /node_modules/,
         type: 'javascript/auto',
-      },
-      {
-        test: /\.html$/i,
-        loader: 'html-loader',
       },
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,

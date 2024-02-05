@@ -42,7 +42,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.1",
+    "mini-css-extract-plugin": "^2.8.0",
     "node-sass": "^8.0.0",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^7.8.3",
